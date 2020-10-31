@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
 import { UserContext } from '../../App';
 import M from "materialize-css/dist/js/materialize.min.js";
@@ -10,8 +10,10 @@ import ProgressBar from '../loading/progress/progressbar';
 const StyleLink = styled(NavLink)`
     text-decoration: none !important;
     color: #00000057;
+    font-size: 18px;
     background: transparent !important;
     transition: 0.3s;
+    border-bottom: none !important;
     &:hover{
         color: #3c3c3ce0;
         background: #e0e0e0 !important;
@@ -81,7 +83,7 @@ const Btn = styled.button`
     }
 `
 const SearchItem = styled.div`
-    
+    margin: 5px 0px;
 `
 
 /////////////
@@ -91,7 +93,6 @@ const NavBar = () => {
     const [searchResult, setSearchResult] = useState([]);
     const modalRef = useRef(null);
     const typingRef = useRef(null);
-    const history = useHistory();
 
     // responsive navbar and modal reference with materialize
     useEffect(() => {
@@ -190,13 +191,20 @@ const NavBar = () => {
                                 <SearchItem>
                                     <StyleLink
                                         to={user._id === state._id ? "/profile" : "/profile/" + user._id}
-                                        className="collection-item" style={{ color: 'black' }}
+                                        className="collection-item" style={{ color: 'black', padding: '5px' }}
                                         onClick={() => console.log(user._id)}
                                     >
                                         {user.name}
+                                        <p className="collection-item" style={{
+                                            background: 'none',
+                                            color: '#0000009c',
+                                            fontSize: '14px',
+                                            padding: '0px',
+                                        }}>{user.email}</p>
                                     </StyleLink>
 
-                                    <p className="collection-item" style={{ color: 'black' }}>{user.email}</p>
+                                    <div style={{borderBottom: '1px solid #00000038'}}></div>
+                                    
                                 </SearchItem>
                             )
                             : <h5 style={{ textAlign: 'center' }}>{user}</h5>

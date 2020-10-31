@@ -114,7 +114,6 @@ route.put('/removeavatar', (req, res) => {
 
 route.post('/search', (req, res) => {
     if (req.body.query) {
-
         const { query } = req.body;
         const pattern = new RegExp("^" + query);
 
