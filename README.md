@@ -1,2 +1,2 @@
-# social-media
+# instagram-clone
  

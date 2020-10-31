@@ -1,0 +1,52 @@
+.points {
+  position: absolute;
+  width: 100%;
+  top: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.point {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  opacity: 0.9;
+}
+.p1 {
+  animation: moving 2s ease-in-out infinite;
+}
+.p2 {
+  animation: moving2 2s ease-in-out infinite;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateX(0);
+    z-index: 11;
+    background-color: #7c7cdc;
+  }
+  50% {
+    transform: translateX(50px);
+    background-color: #5656d2;
+  }
+  100% {
+    transform: translateX(0);
+    z-index: -11;
+    background-color: #7c7cdc;
+  }
+}
+
+@keyframes moving2 {
+  0%, 100%  {
+    transform: translateX(0);
+    background-color: #e86c85;
+  }
+  50% {
+    transform: translateX(-50px);
+    background-color: #e0415f;
+  }
+}
